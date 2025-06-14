@@ -11,15 +11,24 @@
 </script>
 
 <script type="module" crossorigin>
-  import { BlueskyComments } from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js?module';
+  import {
+    BlueskyComments,
+    BlueskyFilters           // ← import the filters module
+  }
+    from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js?module';
 
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('bluesky-comments');
     if (!container) return;
     const uri = container.dataset.bskyUri;
+    const author = container.dataset.bskyAuthor;
+    
     BlueskyComments.init(container.id, {
       uri,
-      commentFilters: [BlueskyComments.Filters.NoPins],
+      author,
+      commentFilters: [
+        BlueskyFilters.NoPins
+      ],
     });
   });
 </script>
