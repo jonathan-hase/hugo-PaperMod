@@ -1,3 +1,10 @@
 {{- /* Comments area start */ -}}
-{{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
+
+{{- if .Params.bluesky_post_uri }}
+  <div
+    id="bluesky-comments"
+    data-bsky-uri="{{ .Params.bluesky_post_uri }}"
+  ></div>
+{{- end }}
+
 {{- /* Comments area end */ -}}
