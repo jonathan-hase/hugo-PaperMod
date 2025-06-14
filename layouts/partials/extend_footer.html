@@ -10,20 +10,27 @@
 }
 </script>
 
+<!-- ② Inline module to render via React -->
 <script type="module" crossorigin>
   import { createElement } from 'react';
   import { createRoot }    from 'react-dom/client';
   import { BlueskyComments, BlueskyFilters }
-    from 'https://esm.sh/bluesky-comments@0.12.0';
+    from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js?module';
 
   document.addEventListener('DOMContentLoaded', () => {
-    const c = document.getElementById('bluesky-comments');
-    if (!c) return;
-    BlueskyComments.init(c.id, {
-      uri:    c.dataset.bskyUri,
-      author: c.dataset.bskyAuthor,
-      commentFilters: [BlueskyFilters.NoPins]
-    });
+    const container = document.getElementById('bluesky-comments');
+    if (!container) return;
+    const uri    = container.dataset.bskyUri;
+    const author = container.dataset.bskyAuthor;
+
+    const root = createRoot(container);
+    root.render(
+      createElement(BlueskyComments, {
+        uri,
+        author,
+        commentFilters: [BlueskyFilters.NoPins],
+      })
+    );
   });
 </script>
 
