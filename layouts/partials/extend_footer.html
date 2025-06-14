@@ -1,7 +1,7 @@
 {{- /* Footer custom content area start */ -}}
 {{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
 
-<script type="importmap">
+<script type="importmap" crossorigin>
 {
   "imports": {
     "react": "https://esm.sh/react@18",
@@ -10,8 +10,8 @@
 }
 </script>
 
-<script type="module">
-  import { BlueskyComments } from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js';
+<script type="module" crossorigin>
+  import { BlueskyComments } from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js?module';
 
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('bluesky-comments');
