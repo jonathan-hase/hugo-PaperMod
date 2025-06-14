@@ -13,12 +13,13 @@
 
 <!-- 2. ESM Initialization Script -->
 <script type="module" crossorigin>
-  import React, { useRef, useState, useEffect } from 'react';
-  import { createRoot }   from 'react-dom/client';
+  import React, { useRef, useState, useEffect } 
+    from 'react';
+  import { createRoot } from 'react-dom/client';
   import {
     BlueskyComments,
     BlueskyFilters
-  } from 'https://unpkg.com/bluesky-comments@latest/dist/bluesky-comments.es.js?module';
+  } from 'https://esm.sh/bluesky-comments@0.12.0?dev';
 
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('bluesky-comments');
@@ -26,7 +27,6 @@
     const uri    = container.dataset.bskyUri;
     const author = container.dataset.bskyAuthor;
 
-    // Render via React if using the ES module bundle
     const root = createRoot(container);
     root.render(
       React.createElement(BlueskyComments, {
